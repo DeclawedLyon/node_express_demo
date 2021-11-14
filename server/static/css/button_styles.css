@@ -1,0 +1,98 @@
+.button-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--clr-bg);
+  /* font-family: "Balsamiq Sans", cursive; */
+  padding-right: 4rem;
+  color: var(--clr-neon);
+}
+/* ===== BUTTONS =====  */
+
+/* ~~~ NEON BUTTON ~~~ */
+
+.neon-button {
+  font-size: 1rem;
+
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--clr-neon);
+  border: var(--clr-neon) 0.125em solid;
+  padding: 0.25em 1em;
+  border-radius: .25em;
+  z-index: +1;
+
+  /* ===== glow effect ===== */
+
+  /* word glow */
+  text-shadow: 
+  0 0 0.125em hsl(0 0% 100% / 0.3),
+  0 0 0.45em currentColor;
+
+  /* --- button glow ---  */
+
+  /* box-shadow creates a shadow on the borders outer edge  */
+  box-shadow: 
+  /* inset adds the shadow to the inside of an element */
+  inset 0 0 0.5em 0 var(--clr-neon), 
+  0 0 0.5em 0 var(--clr-neon);
+
+  position: relative;
+
+  /* transition: background-color 100ms linear; */
+}
+
+/* ===== Create Under-Glow ===== */
+
+/* --- ::before is a pseudo element. learn more: https://www.youtube.com/watch?v=zGiirUiWslI&list=PL4-IK0AVhVjPBX_HelwDlNsTiyr2YGSBw */
+.neon-button::before {
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  background: var(--clr-neon);
+  top: 90%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* making the under-glow look glowey */
+  transform: 
+  perspective(3em) 
+  rotateX(40deg)
+  scale(1, 0.35);
+
+  filter: blur(1.5em);
+  opacity: 0.8;
+}
+.neon-button:hover::before {
+  filter: blur(1em);
+  opacity: 0.75;
+}
+
+/* create hover glow  */
+.neon-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 2.5em 0.3em var(--clr-neon);
+  opacity: 0;
+  background-color: var(--clr-neon);
+  z-index: -1;
+  transition: opacity 100ms linear;
+}
+
+.neon-button:hover::after {
+  opacity: 1;
+}
+
+.neon-button:hover,
+.neon-button:focus {
+  /* background: var(--clr-neon); */
+  color: var(--clr-bg);
+  text-shadow: none;
+}
