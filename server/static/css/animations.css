@@ -1,0 +1,17 @@
+.banner {
+  display: flex;
+}
+.panel {
+  width: 100px;
+  height: 100px;
+  border: 1px solid white;
+  overflow: hidden;
+}
+
+.panel::before {
+  position: absolute;
+  content: 'Hello World!';
+  font-size: 100px;
+  width: max-content;
+}
+

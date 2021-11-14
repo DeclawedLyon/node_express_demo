@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const routes = require('./routes');
 
 const app = express();
 
@@ -16,25 +17,14 @@ app.set('views', path.join(__dirname, 'views'));
 // Tells the App to use the CSS styles and images from the static file
 app.use(express.static(path.join(__dirname, './static')))
 
+app.use('/', routes());
 
 // ----- Route Paths -----
 
-
-// home route
-app.get('/', (req, res) => {
-  // res.send('Hello World!')
-  // sends the index.html file as a response.
-  // res.sendFile(path.join(__dirname, './static/index.html'))
-
-  // renders the index.html file as a response
-  res.render('pages/index', {pageTitle: 'My Node.Express App', userPhrase: 'Practicing with EJS' });
-});
-
-//
-app.get('/speakers', (req, res) => {
-  // res.send('Hello World!')
-  res.sendFile(path.join(__dirname, './static/speakers.html'))
-});
+// app.get('/speakers', (req, res) => {
+//   // res.send('Hello World!')
+//   res.sendFile(path.join(__dirname, './static/speakers.html'))
+// });
 
 
 // ----- Listening route -----

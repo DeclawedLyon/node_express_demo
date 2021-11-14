@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--clr-bg);
+  /* background: var(--clr-bg); */
   /* font-family: "Balsamiq Sans", cursive; */
   padding-right: 4rem;
   color: var(--clr-neon);

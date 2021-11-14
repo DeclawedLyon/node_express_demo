@@ -20,10 +20,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background: var(--clr-bg);
+  background: #000;
   /* font-family: "Balsamiq Sans", cursive; */
   padding-right: 4rem;
-  color: var(--clr-neon);
+  color: #fff;
 }
 
 .main-content-container {
