@@ -1,0 +1,18 @@
+<h2>{{skill.name | uppercase}} Details:</h2>
+<div><span>id: </span>{{skill.id}}</div>
+<div><span>name: </span>{{skill.name | uppercase}}</div>
+<p>skills works!</p>
+<div>
+  <label for="name">Skill name: </label>
+  <input id="name" [(ngModel)]="skill.name" placeholder="name">
+</div>
+
+<div class="skills-container">
+  <h2>My Skills:</h2>
+  <ul class="skills">
+    <li *ngFor="let skill of skills">
+      <span class="badge">{{skill.id}}</span> {{skill.name}}
+    </li>
+  </ul>
+</div>
+
